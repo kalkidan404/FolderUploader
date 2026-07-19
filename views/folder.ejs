@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="/styles.css">
+<title><%= folder.name %></title>
+
+</head>
+
+
+<body>
+
+<div class="container">
+  <div class="card">
+    <h1>
+      📁 <%= folder.name %>
+    </h1>
+
+
+<a href="/upload?folderId=<%= folder.id %>">
+
+Upload File
+
+</a>
+
+
+
+<h2>
+Files
+</h2>
+
+
+
+<% if(folder.files.length === 0){ %>
+
+
+<p>
+No files
+</p>
+
+
+<% } %>
+
+
+
+
+<% folder.files.forEach(file => { %>
+
+
+<div>
+
+
+<a href="/files/<%= file.id %>">
+
+<%= file.originalName %>
+
+</a>
+
+
+
+<a href="/files/<%= file.id %>/download">
+
+Download
+
+</a>
+
+
+
+<form
+action="/files/<%= file.id %>?_method=DELETE"
+method="POST"
+style="display:inline;"
+>
+
+
+<button>
+Delete
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+<% }) %>
+
+
+
+<br>
+
+
+<a href="/folders">
+
+Back to folders
+
+</a>
+
+
+  </div>
+  </div>
+</body>
+
+</html>

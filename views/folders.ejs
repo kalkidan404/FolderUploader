@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>My Folders</title>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <div class="card">
+
+
+        <h1>
+            📁 My Folders
+        </h1>
+
+
+        <p>
+            Manage your files and folders
+        </p>
+
+
+
+        <a href="/folders/new">
+
+            <button>
+                + Create Folder
+            </button>
+
+        </a>
+
+
+
+        <br><br>
+
+
+
+        <% if(folders.length === 0){ %>
+
+
+           <div class="empty">
+    <h3>No folders yet 📁</h3>
+    <br>
+    <p>Create your first folder to start uploading files.</p>
+</div>
+
+
+        <% } else { %>
+
+
+
+            <% folders.forEach(folder => { %>
+
+
+                <div class="folder">
+
+
+                    <a href="/folders/<%= folder.id %>">
+
+                        📁 <%= folder.name %>
+
+                    </a>
+
+
+
+                    <form
+                        action="/folders/<%= folder.id %>?_method=DELETE"
+                        method="POST"
+                    >
+
+
+                        <button class="delete">
+
+                            Delete
+
+                        </button>
+
+
+                    </form>
+
+
+                </div>
+
+
+
+            <% }) %>
+
+
+
+        <% } %>
+
+
+
+
+        <br>
+
+
+
+       <a href="/logout" class="logout">
+    Logout
+</a>
+    </div>
+
+
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="/styles.css" />
+    <title>Shared Folder</title>
+
+</head>
+<div class="container">
+  <div class="card">
+
+<body>
+
+
+<h1>
+
+    Shared Folder: <%= folder.name %>
+
+</h1>
+
+
+
+<h2>Files</h2>
+
+
+
+<% if (folder.files.length === 0) { %>
+
+
+    <p>No files available.</p>
+
+
+<% } %>
+
+
+
+<ul>
+
+
+<% folder.files.forEach(file => { %>
+
+
+    <li>
+
+
+        <%= file.originalName %>
+
+
+        -
+
+
+        <a href="<%= file.fileUrl %>" target="_blank">
+
+            Open
+
+        </a>
+
+
+    </li>
+
+
+<% }) %>
+
+
+</ul>
+
+</div>
+</div>
+
+</body>
+
+</html>
